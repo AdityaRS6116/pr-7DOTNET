@@ -1,0 +1,21 @@
+﻿@model Practical_7.Models.Feedback
+
+@{
+    ViewBag.Title = "Give Feedback";
+}
+
+<div class="feedback-container">
+
+    <h2>Give Feedback</h2>
+
+    @Html.Partial("_FeedbackForm", Model)
+    <br />
+    @Html.ActionLink(
+        "Back to Home",
+        "Index",
+        "Home",
+        null,
+        new { @class = "back-link" }
+    )
+
+</div>

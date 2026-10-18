@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Practical_7.Models.Feedback>
+
+@{
+    ViewBag.Title = "View Feedback";
+}
+
+<div class="feedback-container">
+
+    <h2>Student Feedback</h2>
+
+    @if (Model != null && Model.Any())
+    {
+        <table class="feedback-table">
+
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Enrollment Number</th>
+                    <th>Subject</th>
+                    <th>Rating</th>
+                    <th>Comment</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var feedback in Model)
+                {
+                    <tr>
+                        <td>@feedback.StudentName</td>
+                        <td>@feedback.EnrollmentNumber</td>
+                        <td>@feedback.Subject</td>
+                        <td>@feedback.Rating</td>
+                        <td>@feedback.Comment</td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+    }
+    else
+    {
+        <p>No feedback available.</p>
+    }
+
+    <br />
+
+    @Html.ActionLink(
+        "Back to Home",
+        "Index",
+        "Home",
+        null,
+        new { @class = "back-link" }
+    )
+
+</div>
